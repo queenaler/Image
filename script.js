@@ -56,5 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listener for keydown events
     document.addEventListener('keydown', handleKeyPress);
 });
+async function updateVisitorCount() {
+    const response = await fetch('https://<your-api-endpoint>/api/visitorCount');
+    const data = await response.json();
+    document.getElementById('visitor-count').textContent = `Visitors: ${data.count}`;
+}
+updateVisitorCount();
+
 
 
